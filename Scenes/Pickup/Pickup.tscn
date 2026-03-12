@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://0l0jxx703bcr"]
 
+[ext_resource type="Script" uid="uid://dimfvdkcaavwx" path="res://Scenes/Pickup/Pickup.gd" id="1_cr8k1"]
 [ext_resource type="PackedScene" uid="uid://bvmyh73ogh7jw" path="res://Scenes/Effects/PickupStars/PickupStars.tscn" id="2_cr8k1"]
 
 [sub_resource type="Animation" id="Animation_xmodh"]
@@ -65,6 +66,9 @@ _data = {
 }
 
 [node name="Pickup" type="Area3D" unique_id=1628500723]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_cr8k1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=25391476]
 
@@ -78,3 +82,5 @@ autoplay = &"spin"
 
 [node name="PickupStars" parent="." unique_id=2017634148 instance=ExtResource("2_cr8k1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31019688, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
