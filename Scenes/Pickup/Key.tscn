@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c6s0iu6kjw1us"]
+
+[ext_resource type="PackedScene" uid="uid://0l0jxx703bcr" path="res://Scenes/Pickup/Pickup.tscn" id="1_def7n"]
+[ext_resource type="Script" uid="uid://cy1488n0htal8" path="res://Scenes/Pickup/Key.gd" id="2_f56h7"]
+[ext_resource type="PackedScene" uid="uid://vqnkqg3xutbq" path="res://Assets/Models/Kenney/Platformer/key.glb" id="2_li3yu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_li3yu"]
+radius = 0.27104616
+
+[node name="Key" unique_id=1628500723 instance=ExtResource("1_def7n")]
+monitoring = false
+script = ExtResource("2_f56h7")
+pickup_type = 1
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=25391476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43505228, 0)
+shape = SubResource("SphereShape3D_li3yu")
+
+[node name="key2" parent="Visuals" parent_id_path=PackedInt32Array(1654730994) index="0" unique_id=1578875880 instance=ExtResource("2_li3yu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35154945, 0)
+
+[node name="PickupStars" parent="." index="4" unique_id=2017634148]
+visible = false
+emitting = false

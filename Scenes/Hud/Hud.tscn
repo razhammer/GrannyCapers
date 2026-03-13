@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://diiqqw6341r72"]
+[gd_scene format=3 uid="uid://diiqqw6341r72"]
 
 [ext_resource type="Script" uid="uid://bslp3hmi6b0do" path="res://Scenes/Hud/Hud.gd" id="1_ysf55"]
+[ext_resource type="Texture2D" uid="uid://c6deecgs7aio4" path="res://Assets/Images/Textures/Items/coin-gold.png" id="2_iteex"]
+[ext_resource type="Texture2D" uid="uid://bh0xh4b13rhw8" path="res://Assets/Images/Textures/Items/jewel.png" id="2_xymhr"]
+[ext_resource type="Texture2D" uid="uid://baxms0hakwl7x" path="res://Assets/Images/Textures/Items/key.png" id="4_bbjj2"]
 
-[node name="Hud" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xymhr"]
+content_margin_left = 24.0
+content_margin_top = 18.0
+content_margin_right = 24.0
+content_margin_bottom = 18.0
+bg_color = Color(0.0627451, 0.13725491, 0.3254902, 0.8392157)
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_xymhr"]
+font_size = 32
+
+[node name="Hud" type="Control" unique_id=613413698]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -11,3 +25,58 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ysf55")
+
+[node name="PC" type="PanelContainer" parent="." unique_id=88517627]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xymhr")
+
+[node name="HB" type="HBoxContainer" parent="PC" unique_id=1708720191]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 18
+
+[node name="HBJewel" type="HBoxContainer" parent="PC/HB" unique_id=447428297]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PC/HB/HBJewel" unique_id=1850799699]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_xymhr")
+expand_mode = 2
+
+[node name="LabelJewels" type="Label" parent="PC/HB/HBJewel" unique_id=1993816033]
+layout_mode = 2
+text = "0/100"
+label_settings = SubResource("LabelSettings_xymhr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBCoin" type="HBoxContainer" parent="PC/HB" unique_id=1382948066]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PC/HB/HBCoin" unique_id=1791079698]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_iteex")
+expand_mode = 2
+
+[node name="LabelCoins" type="Label" parent="PC/HB/HBCoin" unique_id=303296279]
+layout_mode = 2
+text = "0/100"
+label_settings = SubResource("LabelSettings_xymhr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyImage" type="TextureRect" parent="PC" unique_id=1061086357]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_bbjj2")
+expand_mode = 2
+stretch_mode = 4

@@ -15,7 +15,7 @@ func _ready() -> void:
 				Pickup.PickupType.Coin:
 					pickup_scores.coins_total += 1
 	print(pickup_scores)
-
+	SignalHub.emit_on_pickup_scores_updated(pickup_scores)
 
 
 func _enter_tree() -> void:
@@ -26,6 +26,8 @@ func on_pickup_collected(pick_up: Pickup):
 	match pick_up.pickup_type:
 		Pickup.PickupType.Jewel:
 			pickup_scores.jewels_count += 1
+			if pickup_scores.all_jewels_collected():
+				SignalHub.emit_on_jewels_collected()
 		Pickup.PickupType.Coin:
 			pickup_scores.coins_count += 1
-	print(pickup_scores)
+	SignalHub.emit_on_pickup_scores_updated(pickup_scores)

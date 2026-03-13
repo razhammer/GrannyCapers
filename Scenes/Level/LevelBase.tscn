@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
 [ext_resource type="PackedScene" uid="uid://dgbw4qxpotdm" path="res://Scenes/Granny/Granny.tscn" id="7_yqkkm"]
 [ext_resource type="PackedScene" uid="uid://b7jarbbyqplg0" path="res://Scenes/Pickup/Jewel.tscn" id="8_y3j2c"]
-[ext_resource type="PackedScene" uid="uid://dgved8ku5vcl2" path="res://Scenes/Pickup/Coin.tscn" id="9_kt428"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickupTracker/PickupTracker.tscn" id="10_6ehlo"]
+[ext_resource type="PackedScene" uid="uid://c6s0iu6kjw1us" path="res://Scenes/Pickup/Key.tscn" id="10_yeolc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -54,10 +54,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7409086, 0)
 
 [node name="Pickups" type="Node" parent="." unique_id=2058054046]
 
-[node name="Coin" parent="Pickups" unique_id=1628500723 instance=ExtResource("9_kt428")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6794014)
-
 [node name="Jewel" parent="Pickups" unique_id=1858503373 instance=ExtResource("8_y3j2c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.929218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055444717, 0, 4.545546)
+
+[node name="Jewel2" parent="Pickups" unique_id=437775966 instance=ExtResource("8_y3j2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019147873, 0, 2.5126078)
+
+[node name="Key" parent="Pickups" unique_id=1653831571 instance=ExtResource("10_yeolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0184803, 0, 7.891491)
 
 [node name="PickupTracker" parent="." unique_id=1973471986 instance=ExtResource("10_6ehlo")]
