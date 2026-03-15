@@ -4,13 +4,30 @@ extends Node
 signal on_pickup_collected(pick_up: Pickup)
 signal on_pickup_scores_updated(scores: PickupScores)
 signal on_jewels_collected
+signal on_key_collected
+signal on_level_completed
+signal on_player_died
+
+
+func emit_on_player_died() -> void:
+	on_player_died.emit()
+
+
+func emit_on_key_collected() -> void:
+	on_key_collected.emit()
+
 
 func emit_on_pickup_collected(pick_up: Pickup) -> void:
 	on_pickup_collected.emit(pick_up)
+
 
 func emit_on_pickup_scores_updated(scores: PickupScores) -> void:
 	on_pickup_scores_updated.emit(scores)
 
 
-func emit_on_jewels_collected():
+func emit_on_jewels_collected() -> void:
 	on_jewels_collected.emit()
+
+
+func emit_on_level_completed() -> void:
+	on_level_completed.emit()

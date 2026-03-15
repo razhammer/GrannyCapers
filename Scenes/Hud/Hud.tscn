@@ -5,6 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://bh0xh4b13rhw8" path="res://Assets/Images/Textures/Items/jewel.png" id="2_xymhr"]
 [ext_resource type="Texture2D" uid="uid://baxms0hakwl7x" path="res://Assets/Images/Textures/Items/key.png" id="4_bbjj2"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ysf55"]
+font_size = 100
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_ighhf"]
+font_size = 64
+font_color = Color(0.33333334, 1, 1, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xymhr"]
 content_margin_left = 24.0
 content_margin_top = 18.0
@@ -16,6 +29,9 @@ corner_detail = 1
 [sub_resource type="LabelSettings" id="LabelSettings_xymhr"]
 font_size = 32
 
+[sub_resource type="LabelSettings" id="LabelSettings_bbjj2"]
+font_size = 32
+
 [node name="Hud" type="Control" unique_id=613413698]
 process_mode = 3
 layout_mode = 3
@@ -25,6 +41,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ysf55")
+
+[node name="LevelCompleteRect" type="ColorRect" parent="." unique_id=1156918933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3647059, 0, 0.87058824, 0.60784316)
+
+[node name="VB" type="VBoxContainer" parent="LevelCompleteRect" unique_id=79288613]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.5
+offset_top = -50.5
+offset_right = 380.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CompleteLabel" type="Label" parent="LevelCompleteRect/VB" unique_id=1356195652]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Complete"
+label_settings = SubResource("LabelSettings_ysf55")
+horizontal_alignment = 1
+
+[node name="ContinueLabel" type="Label" parent="LevelCompleteRect/VB" unique_id=1519954631]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press shoot to continue"
+label_settings = SubResource("LabelSettings_ighhf")
+horizontal_alignment = 1
 
 [node name="PC" type="PanelContainer" parent="." unique_id=88517627]
 layout_mode = 1
@@ -80,3 +134,12 @@ size_flags_vertical = 4
 texture = ExtResource("4_bbjj2")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="LabelExit" type="Label" parent="PC" unique_id=1855632865]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Go to Exit!"
+label_settings = SubResource("LabelSettings_bbjj2")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1616608012]

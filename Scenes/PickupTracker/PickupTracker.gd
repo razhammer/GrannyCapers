@@ -30,4 +30,6 @@ func on_pickup_collected(pick_up: Pickup):
 				SignalHub.emit_on_jewels_collected()
 		Pickup.PickupType.Coin:
 			pickup_scores.coins_count += 1
+		Pickup.PickupType.Key:
+			SignalHub.emit_on_key_collected()
 	SignalHub.emit_on_pickup_scores_updated(pickup_scores)

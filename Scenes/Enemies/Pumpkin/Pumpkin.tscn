@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://mrkdxco5vyt3"]
+
+[ext_resource type="Script" uid="uid://cslp5ekkctwkq" path="res://Scenes/Enemies/Pumpkin/Pumpkin.gd" id="1_foek2"]
+[ext_resource type="PackedScene" uid="uid://ditk8pl8hvbyt" path="res://Assets/Models/Enemies/Pumpkin/Pumpkin.glb" id="1_vv4x1"]
+[ext_resource type="AudioStream" uid="uid://bc7oqn83xl1t6" path="res://Assets/Audio/Enemies/pumpkin.wav" id="2_w6hay"]
+[ext_resource type="PackedScene" uid="uid://behhj1x1xjw24" path="res://Scenes/Utility/LinkPlayer/LinkPlayer.tscn" id="3_3bi1x"]
+[ext_resource type="PackedScene" uid="uid://cxo1qecuoof4p" path="res://Scenes/Utility/FallsOff/FallsOff.tscn" id="4_foek2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6hay"]
+radius = 0.43701172
+height = 0.92285156
+
+[node name="Pumpkin" type="CharacterBody3D" unique_id=1213548927]
+collision_layer = 0
+script = ExtResource("1_foek2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1812272012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43554688, 0)
+shape = SubResource("CapsuleShape3D_w6hay")
+
+[node name="Pumpkin" parent="." unique_id=1623699423 instance=ExtResource("1_vv4x1")]
+transform = Transform3D(-0.8, 0, -6.9938224e-08, 0, 0.8, 0, 6.9938224e-08, 0, -0.8, 0, 0, 0)
+
+[node name="Effects" type="AudioStreamPlayer3D" parent="." unique_id=1436843858]
+stream = ExtResource("2_w6hay")
+
+[node name="JumpTimer" type="Timer" parent="." unique_id=1736733290]
+wait_time = 3.0
+one_shot = true
+
+[node name="LinkPlayer" parent="." unique_id=671507847 instance=ExtResource("3_3bi1x")]
+
+[node name="FallsOff" parent="." unique_id=1638287272 instance=ExtResource("4_foek2")]
+
+[node name="LabelDebug" type="Label3D" parent="." unique_id=2063858663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.171967, 0)
+billboard = 1
+text = "asdfasdf
+asdfasdf
+asdfasdf"
+font_size = 40
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

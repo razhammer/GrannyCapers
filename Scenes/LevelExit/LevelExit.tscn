@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dyldmp46jptqe"]
+
+[ext_resource type="PackedScene" uid="uid://ce0owaul1cj5v" path="res://Assets/Models/Kenney/Platformer/door-rotate-large.glb" id="1_m8yfu"]
+[ext_resource type="Script" uid="uid://ccmgehltrp03q" path="res://Scenes/LevelExit/LevelExit.gd" id="1_xn2r3"]
+[ext_resource type="PackedScene" uid="uid://cxqufe3uxkg2a" path="res://Assets/Models/Kenney/Platformer/fence-straight.glb" id="2_6edub"]
+[ext_resource type="AudioStream" uid="uid://dhvl7y5vhxpq" path="res://Assets/Audio/Music/Effects/242503__wrong-action.wav" id="3_q37bc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8yfu"]
+size = Vector3(1.5265808, 1.944725, 0.5213394)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6edub"]
+size = Vector3(1.6884766, 2.4167633, 0.98187256)
+
+[node name="LevelExit" type="Node3D" unique_id=2128408601]
+script = ExtResource("1_xn2r3")
+
+[node name="door-rotate-large2" parent="." unique_id=1530975089 instance=ExtResource("1_m8yfu")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
+[node name="ExitArea" type="Area3D" parent="." unique_id=296144565]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitArea" unique_id=1144430156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011123657, 1.0054741, 0.49914932)
+shape = SubResource("BoxShape3D_m8yfu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=969790499]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=732643243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016113281, 1.2108841, -0.10531616)
+shape = SubResource("BoxShape3D_6edub")
+
+[node name="fence-straight2" parent="." unique_id=297050717 instance=ExtResource("2_6edub")]
+transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, 0, 0, 0.1506319)
+
+[node name="fence-straight3" parent="." unique_id=2083402726 instance=ExtResource("2_6edub")]
+transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, 0, 0.70196533, 0.1506319)
+
+[node name="fence-straight4" parent="." unique_id=380792701 instance=ExtResource("2_6edub")]
+transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, 0, 1.4506836, 0.1506319)
+
+[node name="LabelHolder" type="Node3D" parent="." unique_id=2095967158]
+
+[node name="LabelKey" type="Label3D" parent="LabelHolder" unique_id=479018595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86493874, 0.3607788)
+modulate = Color(1, 0.2627451, 1, 1)
+text = "You need the key"
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=413123455]
+stream = ExtResource("3_q37bc")
+
+[connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]
+[connection signal="body_exited" from="ExitArea" to="." method="_on_exit_area_body_exited"]
