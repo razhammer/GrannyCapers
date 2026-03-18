@@ -36,7 +36,7 @@ func direction_to_granny(our_pos: Vector3) -> Vector3:
 	
 
 func granny_too_close(our_pos: Vector3) -> bool:
-	return our_pos.distance_to(_granny_ref.global_position) < 0.2
+	return our_pos.distance_to(_granny_ref.global_position) < 0.02
 
 
 func _ready() -> void:

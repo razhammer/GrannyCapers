@@ -18,16 +18,14 @@ const GROUP_NAME = "Granny"
 var _can_double_jump: bool = false
 var _is_moving: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass 
 
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	_handle_input(delta)
 	move_and_slide()
