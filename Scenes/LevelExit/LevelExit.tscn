@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ce0owaul1cj5v" path="res://Assets/Models/Kenney/Platformer/door-rotate-large.glb" id="1_m8yfu"]
 [ext_resource type="Script" uid="uid://ccmgehltrp03q" path="res://Scenes/LevelExit/LevelExit.gd" id="1_xn2r3"]
 [ext_resource type="PackedScene" uid="uid://cxqufe3uxkg2a" path="res://Assets/Models/Kenney/Platformer/fence-straight.glb" id="2_6edub"]
-[ext_resource type="AudioStream" uid="uid://dhvl7y5vhxpq" path="res://Assets/Audio/Music/Effects/242503__wrong-action.wav" id="3_q37bc"]
+[ext_resource type="AudioStream" uid="uid://dhvl7y5vhxpq" path="res://Assets/Audio/Effects/242503__wrong-action.wav" id="3_q37bc"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8yfu"]
 size = Vector3(1.5265808, 1.944725, 0.5213394)

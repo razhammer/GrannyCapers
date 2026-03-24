@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c13np3oqgs2bs"]
+
+[ext_resource type="PackedScene" uid="uid://cotpbyle7wmwu" path="res://Scenes/Enemies/Vampire/VampireModel.tscn" id="1_6qk3o"]
+[ext_resource type="Script" uid="uid://cq4f1whi7yywk" path="res://Scenes/Enemies/Vampire/Vampire.gd" id="1_l5kib"]
+[ext_resource type="PackedScene" uid="uid://cxo1qecuoof4p" path="res://Scenes/Utility/FallsOff/FallsOff.tscn" id="2_1fej0"]
+[ext_resource type="PackedScene" uid="uid://behhj1x1xjw24" path="res://Scenes/Utility/LinkPlayer/LinkPlayer.tscn" id="3_vibdq"]
+[ext_resource type="AudioStream" uid="uid://cdoho2cind8m5" path="res://Assets/Audio/Enemies/vampire-sucking-blood-short.wav" id="4_b4x8s"]
+[ext_resource type="AudioStream" uid="uid://ddn1iotavdv3c" path="res://Assets/Audio/Enemies/vampire1.wav" id="5_l5kib"]
+[ext_resource type="AudioStream" uid="uid://bi3dfmooc7sev" path="res://Assets/Audio/Enemies/vampire_running.wav" id="5_ms1w1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2ri"]
+radius = 0.296875
+height = 1.3321533
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2tsvk"]
+streams_count = 2
+stream_0/stream = ExtResource("5_l5kib")
+stream_1/stream = ExtResource("5_ms1w1")
+
+[node name="Vampire" type="CharacterBody3D" unique_id=1854934885]
+collision_layer = 0
+script = ExtResource("1_l5kib")
+
+[node name="VampireModel" parent="." unique_id=1267251194 instance=ExtResource("1_6qk3o")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=310880255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.69171065, 0, 0.61568624, 0)
+shape = SubResource("CapsuleShape3D_lj2ri")
+
+[node name="FallsOff" parent="." unique_id=1638287272 instance=ExtResource("2_1fej0")]
+
+[node name="LinkPlayer" parent="." unique_id=671507847 instance=ExtResource("3_vibdq")]
+
+[node name="BloodSucker" type="AudioStreamPlayer3D" parent="." unique_id=1942745227]
+stream = ExtResource("4_b4x8s")
+
+[node name="RunningEffect" type="AudioStreamPlayer3D" parent="." unique_id=2138956030]
+stream = SubResource("AudioStreamRandomizer_2tsvk")
+
+[node name="RunningTimer" type="Timer" parent="." unique_id=1207958319]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="RunningTimer" to="." method="_on_running_timer_timeout"]

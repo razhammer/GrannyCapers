@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bqresc2oumbxt"]
 
+[ext_resource type="Script" uid="uid://cugfgjyoqc0f5" path="res://Scenes/Enemies/Vampire/VampireCoffin.gd" id="1_72j70"]
 [ext_resource type="PackedScene" uid="uid://s3xlii8xskme" path="res://Assets/Models/Kenney/Graveyard/coffin-old.glb" id="1_ajp2x"]
 [ext_resource type="PackedScene" uid="uid://jl7g2rxdlhr0" path="res://Assets/Models/Kenney/Graveyard/coffin.glb" id="2_yainm"]
 [ext_resource type="PackedScene" uid="uid://cotpbyle7wmwu" path="res://Scenes/Enemies/Vampire/VampireModel.tscn" id="3_yainm"]
@@ -161,6 +162,7 @@ _data = {
 }
 
 [node name="VampireCoffin" type="Node3D" unique_id=363409951]
+script = ExtResource("1_72j70")
 
 [node name="coffin-old2" parent="." unique_id=1748898186 instance=ExtResource("1_ajp2x")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.17118049, -0.5826365)
@@ -179,7 +181,9 @@ libraries/ = SubResource("AnimationLibrary_hd83o")
 [node name="Sounds" type="AudioStreamPlayer3D" parent="." unique_id=306960481]
 
 [node name="PlayerDetect" type="RayCast3D" parent="." unique_id=96094521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42666817, 0)
 target_position = Vector3(0, 0, -5)
-debug_shape_custom_color = Color(0, 0.7607843, 0, 1)
+collision_mask = 3
+debug_shape_custom_color = Color(0.6745098, 0.09019608, 0, 1)
 
 [node name="LinkPlayer" parent="." unique_id=671507847 instance=ExtResource("6_poccj")]
