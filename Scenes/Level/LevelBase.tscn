@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c6s0iu6kjw1us" path="res://Scenes/Pickup/Key.tscn" id="10_yeolc"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="11_yeolc"]
 [ext_resource type="PackedScene" uid="uid://bqresc2oumbxt" path="res://Scenes/Enemies/Vampire/VampireCoffin.tscn" id="13_86rlm"]
+[ext_resource type="PackedScene" uid="uid://c13np3oqgs2bs" path="res://Scenes/Enemies/Vampire/Vampire.tscn" id="14_pggwt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -79,3 +80,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055444717, 0, -5.283321)
 
 [node name="VampireCoffin" parent="." unique_id=363409951 instance=ExtResource("13_86rlm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.585007, 0, 5.769492)
+
+[node name="Vampire" parent="." unique_id=1854934885 instance=ExtResource("14_pggwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.009116, 3, 6.8451033)

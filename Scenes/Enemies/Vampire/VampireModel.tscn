@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cotpbyle7wmwu"]
 
 [ext_resource type="Texture2D" uid="uid://nqgvpbq30ga6" path="res://Assets/Models/Kenney/Graveyard/Textures/colormap.png" id="1_8dw6d"]
+[ext_resource type="Script" uid="uid://djokb4kfwi658" path="res://Scenes/Enemies/Vampire/VampireModel.gd" id="1_q8bie"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yug03"]
 resource_name = "colormap"
@@ -2473,6 +2474,7 @@ _data = {
 }
 
 [node name="VampireModel" type="Node3D" unique_id=1267251194]
+script = ExtResource("1_q8bie")
 
 [node name="character-vampire3" type="Node3D" parent="." unique_id=314023233]
 transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 0, 0, 0)
@@ -2516,4 +2518,4 @@ skeleton = NodePath("")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1055987373]
 libraries/ = SubResource("AnimationLibrary_ojh7x")
-autoplay = &"static"
+autoplay = &"walk"
