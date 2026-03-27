@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cbfj8x6yxtq32" path="res://Assets/Images/Hdr/LevelSky.hdr" id="1_5ufo3"]
 [ext_resource type="Script" uid="uid://dkv081yb17o7j" path="res://Scenes/Level/LevelBase.gd" id="1_78m1b"]
 [ext_resource type="PackedScene" uid="uid://diiqqw6341r72" path="res://Scenes/Hud/Hud.tscn" id="2_bgw71"]
+[ext_resource type="PackedScene" uid="uid://4gmhh6ivuqix" path="res://Scenes/ObjectContainer/ObjectContainer.tscn" id="2_t11kh"]
 [ext_resource type="AudioStream" uid="uid://dvxhdoqb1xwpm" path="res://Assets/Audio/Music/Adventures in Adventureland.mp3" id="4_lmtt4"]
 [ext_resource type="AudioStream" uid="uid://cgnfsivumhmys" path="res://Assets/Audio/Music/Lord of the Rangs.mp3" id="5_ooqsx"]
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
@@ -12,8 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickupTracker/PickupTracker.tscn" id="10_6ehlo"]
 [ext_resource type="PackedScene" uid="uid://c6s0iu6kjw1us" path="res://Scenes/Pickup/Key.tscn" id="10_yeolc"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="11_yeolc"]
-[ext_resource type="PackedScene" uid="uid://bqresc2oumbxt" path="res://Scenes/Enemies/Vampire/VampireCoffin.tscn" id="13_86rlm"]
-[ext_resource type="PackedScene" uid="uid://c13np3oqgs2bs" path="res://Scenes/Enemies/Vampire/Vampire.tscn" id="14_pggwt"]
+[ext_resource type="PackedScene" uid="uid://dnpuusw507yfn" path="res://Scenes/Enemies/Turret/Turret.tscn" id="14_pggwt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -36,6 +36,8 @@ stream_1/stream = ExtResource("5_ooqsx")
 
 [node name="LevelBase" type="Node" unique_id=2000332634]
 script = ExtResource("1_78m1b")
+
+[node name="ObjectContainer" parent="." unique_id=1195958874 instance=ExtResource("2_t11kh")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=401994348]
 environment = SubResource("Environment_3lxj6")
@@ -78,8 +80,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0184803, 0, 7.891491)
 [node name="LevelExit" parent="." unique_id=2128408601 instance=ExtResource("11_yeolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055444717, 0, -5.283321)
 
-[node name="VampireCoffin" parent="." unique_id=363409951 instance=ExtResource("13_86rlm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.585007, 0, 5.769492)
-
-[node name="Vampire" parent="." unique_id=1854934885 instance=ExtResource("14_pggwt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.009116, 3, 6.8451033)
+[node name="Turret" parent="." unique_id=365575296 instance=ExtResource("14_pggwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.157735, 0, -3.7420576)

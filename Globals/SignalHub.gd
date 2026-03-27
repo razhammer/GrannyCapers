@@ -7,6 +7,7 @@ signal on_jewels_collected
 signal on_key_collected
 signal on_level_completed
 signal on_player_died
+signal on_add_new_scene(ob: Node3D, new_pos: Vector3)
 
 
 func emit_on_player_died() -> void:
@@ -31,3 +32,7 @@ func emit_on_jewels_collected() -> void:
 
 func emit_on_level_completed() -> void:
 	on_level_completed.emit()
+
+
+func emit_on_add_new_scene(ob: Node3D, new_pos: Vector3) -> void:
+	on_add_new_scene.emit(ob, new_pos)
