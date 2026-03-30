@@ -17,7 +17,7 @@ const GHOST = preload("uid://dyu1wks7br31t")
 var _on_screen: bool = false
 var _frozen_timer: float = 0.0
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if !link_player.granny:
 		return
 	
