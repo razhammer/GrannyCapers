@@ -17,6 +17,7 @@ const GROUP_NAME = "Granny"
 
 var _can_double_jump: bool = false
 var _is_moving: bool = false
+var _throwing: bool = false
 
 func _ready() -> void:
 	pass 
@@ -73,6 +74,9 @@ func _handle_jump() -> void:
 			_can_double_jump = false
 
 
+func _handle_shoot() -> void:
+	if Input.is_action_just_pressed("shoot") and !_throwing and is_on_floor():
+		_throwing = true
 
 
 func _update_debug() -> void:

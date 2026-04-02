@@ -7582,6 +7582,9 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4xqq0"]
 animation = &"Run"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ypqs3"]
+animation = &"Throw"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0vjfr"]
 xfade_time = 0.2
 advance_mode = 2
@@ -7595,13 +7598,28 @@ advance_expression = "!_is_moving"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cqa7y"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mac3"]
+xfade_time = 0.2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6seuo"]
+xfade_time = 0.2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0mvqp"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_m82uo"]
 states/Idle/node = SubResource("AnimationNodeAnimation_cqa7y")
-states/Idle/position = Vector2(403.33334, 99.33333)
+states/Idle/position = Vector2(406, 98.740746)
 states/Run/node = SubResource("AnimationNodeAnimation_4xqq0")
 states/Run/position = Vector2(604.6667, 100.44444)
 states/Start/position = Vector2(234.66667, 100.666664)
-transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_0vjfr"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_7qrug"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cqa7y")]
+states/Throw/node = SubResource("AnimationNodeAnimation_ypqs3")
+states/Throw/position = Vector2(526, 196)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_0vjfr"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_7qrug"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cqa7y"), "Idle", "Throw", SubResource("AnimationNodeStateMachineTransition_7mac3"), "Run", "Throw", SubResource("AnimationNodeStateMachineTransition_6seuo"), "Throw", "Idle", SubResource("AnimationNodeStateMachineTransition_0mvqp")]
 graph_offset = Vector2(82, -30)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ix00n"]
@@ -8345,6 +8363,11 @@ skin = SubResource("Skin_niw3p")
 [node name="Fitness_Grandma_MouthAnimGeo" type="MeshInstance3D" parent="Model/Armature/Skeleton3D" unique_id=1829198291]
 mesh = SubResource("ArrayMesh_sc157")
 skin = SubResource("Skin_niw3p")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" unique_id=84930600]
+transform = Transform3D(-0.32799634, -0.84092915, 0.43041345, 0.81837654, -0.4805287, -0.31520036, 0.47188708, 0.24885613, 0.8458087, -86.42388, -34.44074, -157.90222)
+bone_name = "mixamorig_RightHandRing2"
+bone_idx = 76
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=1875318488]
 libraries/ = SubResource("AnimationLibrary_ypmfb")

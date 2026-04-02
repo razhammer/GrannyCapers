@@ -2358,7 +2358,7 @@ tracks/11/keys = PackedFloat32Array(0, 1, 0, 0, 0, -1)
 [sub_resource type="Animation" id="Animation_jco15"]
 resource_name = "walk"
 length = 0.6666667
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -2476,46 +2476,47 @@ _data = {
 [node name="VampireModel" type="Node3D" unique_id=1267251194]
 script = ExtResource("1_q8bie")
 
-[node name="character-vampire3" type="Node3D" parent="." unique_id=314023233]
+[node name="character-vampire2" type="Node3D" parent="." unique_id=1870503067]
 transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 0, 0, 0)
 
-[node name="root" type="Node3D" parent="character-vampire3" unique_id=733975792]
+[node name="character-vampire" type="Node3D" parent="character-vampire2" unique_id=2008903053]
 
-[node name="leg-left" type="MeshInstance3D" parent="character-vampire3/root" unique_id=415379487]
+[node name="root" type="Node3D" parent="character-vampire2/character-vampire" unique_id=628035327]
+
+[node name="leg-left" type="MeshInstance3D" parent="character-vampire2/character-vampire/root" unique_id=1614594886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.074204, 0.223184, -7.219114e-16)
 mesh = SubResource("ArrayMesh_5fj2p")
 skeleton = NodePath("")
 
-[node name="leg-right" type="MeshInstance3D" parent="character-vampire3/root" unique_id=1460169240]
+[node name="leg-right" type="MeshInstance3D" parent="character-vampire2/character-vampire/root" unique_id=1871373735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074204, 0.223184, -7.219114e-16)
 mesh = SubResource("ArrayMesh_mgma1")
 skeleton = NodePath("")
 
-[node name="torso" type="MeshInstance3D" parent="character-vampire3/root" unique_id=898472761]
+[node name="torso" type="MeshInstance3D" parent="character-vampire2/character-vampire/root" unique_id=1431756351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4438228e-15, 0.223184, -7.219114e-16)
 mesh = SubResource("ArrayMesh_srvoi")
 skeleton = NodePath("")
 
-[node name="arm-left" type="MeshInstance3D" parent="character-vampire3/root/torso" unique_id=811200513]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.2, 0.0025)
+[node name="arm-left" type="MeshInstance3D" parent="character-vampire2/character-vampire/root/torso" unique_id=1806133507]
+transform = Transform3D(0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0, 0, 1, 0.15, 0.2, 0.0025)
 mesh = SubResource("ArrayMesh_cijeb")
 skeleton = NodePath("")
 
-[node name="arm-right" type="MeshInstance3D" parent="character-vampire3/root/torso" unique_id=1487056940]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.2, 0.0025)
+[node name="arm-right" type="MeshInstance3D" parent="character-vampire2/character-vampire/root/torso" unique_id=1453100818]
+transform = Transform3D(0.7071067, -0.7071068, 0, 0.7071068, 0.7071067, 0, 0, 0, 1, -0.15, 0.2, 0.0025)
 mesh = SubResource("ArrayMesh_l5hsq")
 skeleton = NodePath("")
 
-[node name="cape" type="MeshInstance3D" parent="character-vampire3/root/torso" unique_id=1347660535]
+[node name="cape" type="MeshInstance3D" parent="character-vampire2/character-vampire/root/torso" unique_id=135622134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, -0.1)
 mesh = SubResource("ArrayMesh_5p5rq")
 skeleton = NodePath("")
 
-[node name="head" type="MeshInstance3D" parent="character-vampire3/root/torso" unique_id=2103819679]
+[node name="head" type="MeshInstance3D" parent="character-vampire2/character-vampire/root/torso" unique_id=861363368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 0)
 mesh = SubResource("ArrayMesh_p0l0b")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1055987373]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="character-vampire2" unique_id=1055125147]
 libraries/ = SubResource("AnimationLibrary_ojh7x")
-autoplay = &"walk"
