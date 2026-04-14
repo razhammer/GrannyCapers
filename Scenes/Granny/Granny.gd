@@ -3,6 +3,7 @@ extends CharacterBody3D
 class_name Granny
 
 const GROUP_NAME = "Granny"
+const FIREBALL = preload("uid://n3ksvmsoowpn")
 
 @export var gravity: float = -70.0
 @export var run_speed: float = 4.0
@@ -10,8 +11,15 @@ const GROUP_NAME = "Granny"
 @export var jump_velocity: float = 40.0
 @export var double_jump_velocity: float = 20.0
 @export var air_control_factor: float = 0.7
+@export var shoot_speed: float = 10.0
+@export var vert_shoot_speed: float = 10.0
 
 @onready var debug_label: Label3D = $DebugLabel
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var tree_sm_grounded: AnimationNodeStateMachinePlayback\
+			 = animation_tree["parameters/Grounded/playback"]
+@onready var shoot_bone: BoneAttachment3D = $Model/Armature/Skeleton3D/ShootBone
+
 
 
 
@@ -36,10 +44,15 @@ func _physics_process(delta: float) -> void:
 func _handle_input(delta: float) -> void:
 	velocity.y += delta * gravity
 	
+	if _throwing:
+		_is_moving = false
+		return
 	
 	var rotated: bool = _handle_rotation(delta)
 	var moved: bool = _handle_movement()
 	_is_moving = rotated or moved
+	
+	_handle_shoot()
 	_handle_jump()
 
 
@@ -65,6 +78,9 @@ func _handle_rotation(delta: float) -> bool:
 
 
 func _handle_jump() -> void:
+	if _throwing:
+		return
+	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_velocity
@@ -77,6 +93,7 @@ func _handle_jump() -> void:
 func _handle_shoot() -> void:
 	if Input.is_action_just_pressed("shoot") and !_throwing and is_on_floor():
 		_throwing = true
+		tree_sm_grounded.travel("Throw")
 
 
 func _update_debug() -> void:
@@ -84,3 +101,15 @@ func _update_debug() -> void:
 	s += "vel: %s\n" % GrannyUtils.formatted_vec3(velocity)
 	s += "pos: %s\n" % GrannyUtils.formatted_vec3(global_position)
 	debug_label.text = s
+
+func create_fireball() -> void:
+	var fb: Fireball = FIREBALL.instantiate()
+	fb.setup(shoot_speed, global_transform.basis.z, vert_shoot_speed)
+	SignalHub.emit_on_add_new_scene(fb, shoot_bone.global_position)
+	
+
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Throw":
+		_throwing = false
+		
