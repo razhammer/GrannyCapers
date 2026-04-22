@@ -85,7 +85,7 @@ func _handle_jump() -> void:
 		if is_on_floor():
 			velocity.y = jump_velocity
 			_can_double_jump = true
-		elif _can_double_jump == true and velocity.y > 0:
+		elif _can_double_jump == true and velocity.y != null:
 			velocity.y += double_jump_velocity
 			_can_double_jump = false
 
