@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cn3tfo7h8d7bd" path="res://Scenes/Enemies/Ghost/Ghost.gd" id="1_boww7"]
 [ext_resource type="Texture2D" uid="uid://nqgvpbq30ga6" path="res://Assets/Models/Kenney/Graveyard/Textures/colormap.png" id="1_mmqny"]
 [ext_resource type="PackedScene" uid="uid://behhj1x1xjw24" path="res://Scenes/Utility/LinkPlayer/LinkPlayer.tscn" id="2_8c48c"]
+[ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="4_6py4n"]
+[ext_resource type="PackedScene" uid="uid://dy7tkg3eilevf" path="res://Scenes/Collider/HurtBox.tscn" id="5_a45o2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4vpd"]
 resource_name = "colormap"
@@ -1292,6 +1294,12 @@ _data = {
 &"walk": SubResource("Animation_loo3h")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a45o2"]
+size = Vector3(0.4, 0.5, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6py4n"]
+size = Vector3(0.8, 0.9, 0.8)
+
 [node name="Ghost" type="Node3D" unique_id=251506378]
 script = ExtResource("1_boww7")
 
@@ -1337,6 +1345,21 @@ autoplay = &"walk"
 [node name="ScreenNotifier" type="VisibleOnScreenNotifier3D" parent="." unique_id=1973128430]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6552673, 0)
 aabb = AABB(-0.6056256, -0.6230002, -0.6006615, 1.2112513, 1.2460004, 1.201323)
+
+[node name="DamageCollider" parent="." unique_id=450954705 instance=ExtResource("4_6py4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8757108, -0.16784453)
+collision_layer = 4
+damage_amount = 15
+explodes_on_hit = false
+dies_on_hit = false
+shape = SubResource("BoxShape3D_a45o2")
+
+[node name="HurtBox" parent="." unique_id=635158075 instance=ExtResource("5_a45o2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6604318, 0)
+collision_layer = 128
+collision_mask = 16
+max_health = 20
+shape = SubResource("BoxShape3D_6py4n")
 
 [connection signal="screen_entered" from="ScreenNotifier" to="." method="_on_screen_notifier_screen_entered"]
 [connection signal="screen_exited" from="ScreenNotifier" to="." method="_on_screen_notifier_screen_exited"]

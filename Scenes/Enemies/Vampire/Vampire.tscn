@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://cdoho2cind8m5" path="res://Assets/Audio/Enemies/vampire-sucking-blood-short.wav" id="4_b4x8s"]
 [ext_resource type="AudioStream" uid="uid://ddn1iotavdv3c" path="res://Assets/Audio/Enemies/vampire1.wav" id="5_l5kib"]
 [ext_resource type="AudioStream" uid="uid://bi3dfmooc7sev" path="res://Assets/Audio/Enemies/vampire_running.wav" id="5_ms1w1"]
+[ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="7_2tsvk"]
+[ext_resource type="PackedScene" uid="uid://dy7tkg3eilevf" path="res://Scenes/Collider/HurtBox.tscn" id="8_oeinb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2ri"]
 radius = 0.296875
@@ -15,6 +17,12 @@ height = 1.3321533
 streams_count = 2
 stream_0/stream = ExtResource("5_l5kib")
 stream_1/stream = ExtResource("5_ms1w1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m067n"]
+size = Vector3(0.5, 1, 0.1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2tsvk"]
+height = 1.6
 
 [node name="Vampire" type="CharacterBody3D" unique_id=1854934885]
 collision_layer = 0
@@ -38,4 +46,21 @@ stream = SubResource("AudioStreamRandomizer_2tsvk")
 wait_time = 4.0
 autostart = true
 
+[node name="DamageCollider" parent="." unique_id=450954705 instance=ExtResource("7_2tsvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6423752, -0.20739084)
+collision_layer = 4
+collision_mask = 8
+damage_amount = 20
+explodes_on_hit = false
+dies_on_hit = false
+shape = SubResource("BoxShape3D_m067n")
+
+[node name="HurtBox" parent="." unique_id=1307537231 instance=ExtResource("8_oeinb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58185506, 0)
+collision_layer = 128
+collision_mask = 16
+max_health = 40
+shape = SubResource("CapsuleShape3D_2tsvk")
+
 [connection signal="timeout" from="RunningTimer" to="." method="_on_running_timer_timeout"]
+[connection signal="damage_given" from="DamageCollider" to="." method="_on_damage_collider_damage_given"]

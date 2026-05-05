@@ -41,6 +41,12 @@ func _physics_process(delta: float) -> void:
 	_update_debug()
 
 
+func _set_move_zero() -> void:
+	velocity.x = 0.0
+	velocity.z = 0.0
+
+
+
 func _handle_input(delta: float) -> void:
 	velocity.y += delta * gravity
 	
@@ -59,8 +65,7 @@ func _handle_input(delta: float) -> void:
 func _handle_movement() -> bool:
 	var input: float = Input.get_axis("move_backward","move_forward")
 	if is_equal_approx(input, 0.0):
-		velocity.x = 0.0
-		velocity.z = 0.0
+		_set_move_zero()
 		return false
 	
 	var direction: Vector3 = transform.basis.z * input
@@ -93,6 +98,7 @@ func _handle_jump() -> void:
 func _handle_shoot() -> void:
 	if Input.is_action_just_pressed("shoot") and !_throwing and is_on_floor():
 		_throwing = true
+		_set_move_zero()
 		tree_sm_grounded.travel("Throw")
 
 

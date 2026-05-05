@@ -5,10 +5,18 @@
 [ext_resource type="AudioStream" uid="uid://bc7oqn83xl1t6" path="res://Assets/Audio/Enemies/pumpkin.wav" id="2_w6hay"]
 [ext_resource type="PackedScene" uid="uid://behhj1x1xjw24" path="res://Scenes/Utility/LinkPlayer/LinkPlayer.tscn" id="3_3bi1x"]
 [ext_resource type="PackedScene" uid="uid://cxo1qecuoof4p" path="res://Scenes/Utility/FallsOff/FallsOff.tscn" id="4_foek2"]
+[ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="6_4gme1"]
+[ext_resource type="PackedScene" uid="uid://dy7tkg3eilevf" path="res://Scenes/Collider/HurtBox.tscn" id="7_jleyv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6hay"]
 radius = 0.43701172
 height = 0.92285156
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gme1"]
+size = Vector3(0.7, 0.5, 0.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4gme1"]
+radius = 0.7
 
 [node name="Pumpkin" type="CharacterBody3D" unique_id=1213548927]
 collision_layer = 0
@@ -39,5 +47,20 @@ text = "asdfasdf
 asdfasdf
 asdfasdf"
 font_size = 40
+
+[node name="DamageCollider" parent="." unique_id=450954705 instance=ExtResource("6_4gme1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54653597, -0.43216413)
+collision_layer = 4
+damage_amount = 30
+explodes_on_hit = false
+dies_on_hit = false
+shape = SubResource("BoxShape3D_4gme1")
+
+[node name="HurtBox" parent="." unique_id=1530020075 instance=ExtResource("7_jleyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45985317, 0)
+collision_layer = 128
+collision_mask = 16
+max_health = 20
+shape = SubResource("SphereShape3D_4gme1")
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
