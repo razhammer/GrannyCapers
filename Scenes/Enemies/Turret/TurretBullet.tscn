@@ -90,5 +90,5 @@ draw_pass_1 = SubResource("QuadMesh_js8gi")
 [node name="DamageCollider" parent="." unique_id=450954705 instance=ExtResource("5_f1nq1")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 collision_layer = 4
-collision_mask = 8
+collision_mask = 9
 shape = SubResource("CapsuleShape3D_wgic5")

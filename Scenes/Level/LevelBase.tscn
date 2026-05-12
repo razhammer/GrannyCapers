@@ -31,6 +31,9 @@ streams_count = 2
 stream_0/stream = ExtResource("4_lmtt4")
 stream_1/stream = ExtResource("5_ooqsx")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yeolc"]
+size = Vector3(4.846924, 4.911133, 0.86865234)
+
 [node name="LevelBase" type="Node" unique_id=2000332634]
 script = ExtResource("1_78m1b")
 
@@ -67,5 +70,12 @@ wait_time = 4.0
 
 [node name="Turret" parent="." unique_id=365575296 instance=ExtResource("11_ilrmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.225184, 0, 2.2759438)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1908151951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5695333, 0, -0.017346382)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1701567639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9234619, 1.9555664, -0.06567383)
+shape = SubResource("BoxShape3D_yeolc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -41,3 +41,7 @@ func die() -> void:
 
 func _on_area_entered(area: Area3D) -> void:
 	pass
+
+
+func _on_body_entered(body: Node3D) -> void:
+	pass
