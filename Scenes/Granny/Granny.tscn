@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://c2vbqylaj4w8b" path="res://Assets/Models/Granny/Granny_FitnessGrandma_normal.jpg" id="2_cqa7y"]
 [ext_resource type="Texture2D" uid="uid://dj1u7qvp1wxk3" path="res://Assets/Models/Granny/Granny_FitnessGrandma_FaceAnimMap.png" id="3_4xqq0"]
 [ext_resource type="PackedScene" uid="uid://dy7tkg3eilevf" path="res://Scenes/Collider/HurtBox.tscn" id="5_4xqq0"]
+[ext_resource type="AudioStream" uid="uid://bbti8yghfxnxg" path="res://Assets/Audio/Granny/playerhurt1.wav" id="6_ypqs3"]
+[ext_resource type="AudioStream" uid="uid://n3gpy8xk5oie" path="res://Assets/Audio/Granny/playerhurt2.wav" id="7_m82uo"]
+[ext_resource type="AudioStream" uid="uid://blvs6g1cqo7tx" path="res://Assets/Audio/Granny/playerhurt3.wav" id="8_ix00n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rib6"]
 resource_name = "Grandma_MAT"
@@ -7671,6 +7674,12 @@ graph_offset = Vector2(94, -12)
 height = 1.4
 radius = 0.25
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5xbvs"]
+streams_count = 3
+stream_0/stream = ExtResource("6_ypqs3")
+stream_1/stream = ExtResource("7_m82uo")
+stream_2/stream = ExtResource("8_ix00n")
+
 [node name="Granny" type="CharacterBody3D" unique_id=944199689]
 collision_layer = 2
 collision_mask = 257
@@ -8429,6 +8438,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87399733, 0)
 collision_layer = 8
 collision_mask = 4
 kills_parent_on_death = false
+max_health = 20
 shape = SubResource("CylinderShape3D_0vjfr")
 
+[node name="Effects" type="AudioStreamPlayer3D" parent="." unique_id=804118500]
+
+[node name="HurtSounds" type="AudioStreamPlayer3D" parent="." unique_id=1295212263]
+stream = SubResource("AudioStreamRandomizer_5xbvs")
+
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="damage_taken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]
+[connection signal="died" from="HurtBox" to="." method="_on_hurt_box_died"]

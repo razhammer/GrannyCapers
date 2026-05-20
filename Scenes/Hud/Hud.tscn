@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://diiqqw6341r72"]
 
 [ext_resource type="Script" uid="uid://bslp3hmi6b0do" path="res://Scenes/Hud/Hud.gd" id="1_ysf55"]
+[ext_resource type="Texture2D" uid="uid://b7uxoy3t3gsn6" path="res://Assets/Images/Textures/Items/heart.png" id="2_ighhf"]
 [ext_resource type="Texture2D" uid="uid://c6deecgs7aio4" path="res://Assets/Images/Textures/Items/coin-gold.png" id="2_iteex"]
 [ext_resource type="Texture2D" uid="uid://bh0xh4b13rhw8" path="res://Assets/Images/Textures/Items/jewel.png" id="2_xymhr"]
+[ext_resource type="FontFile" uid="uid://c3844posdmli7" path="res://Assets/Fonts/LuckiestGuy-Regular.ttf" id="3_r61c6"]
 [ext_resource type="Texture2D" uid="uid://baxms0hakwl7x" path="res://Assets/Images/Textures/Items/key.png" id="4_bbjj2"]
+[ext_resource type="AudioStream" uid="uid://dvxhdoqb1xwpm" path="res://Assets/Audio/Music/Adventures in Adventureland.mp3" id="7_ogn3t"]
+[ext_resource type="AudioStream" uid="uid://cgnfsivumhmys" path="res://Assets/Audio/Music/Lord of the Rangs.mp3" id="8_iftnw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ysf55"]
 font_size = 100
@@ -26,11 +30,21 @@ content_margin_bottom = 18.0
 bg_color = Color(0.0627451, 0.13725491, 0.3254902, 0.8392157)
 corner_detail = 1
 
+[sub_resource type="LabelSettings" id="LabelSettings_ogn3t"]
+font = ExtResource("3_r61c6")
+font_size = 32
+
 [sub_resource type="LabelSettings" id="LabelSettings_xymhr"]
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_bbjj2"]
 font_size = 32
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_enfmd"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("7_ogn3t")
+stream_1/stream = ExtResource("8_iftnw")
 
 [node name="Hud" type="Control" unique_id=613413698]
 process_mode = 3
@@ -93,6 +107,18 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 18
 
+[node name="HBoxHeart" type="HBoxContainer" parent="PC/HB" unique_id=1536259964]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PC/HB/HBoxHeart" unique_id=705825695]
+layout_mode = 2
+texture = ExtResource("2_ighhf")
+
+[node name="LabelHeart" type="Label" parent="PC/HB/HBoxHeart" unique_id=381440234]
+layout_mode = 2
+text = "000.000"
+label_settings = SubResource("LabelSettings_ogn3t")
+
 [node name="HBJewel" type="HBoxContainer" parent="PC/HB" unique_id=447428297]
 layout_mode = 2
 
@@ -143,3 +169,8 @@ text = "Go to Exit!"
 label_settings = SubResource("LabelSettings_bbjj2")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1616608012]
+
+[node name="InGameMusic" type="AudioStreamPlayer" parent="." unique_id=1093314393]
+stream = SubResource("AudioStreamRandomizer_enfmd")
+volume_db = -6.0
+autoplay = true
