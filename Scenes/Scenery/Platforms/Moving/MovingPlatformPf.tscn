@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bv1b1nn566amr"]
+
+[ext_resource type="Script" uid="uid://cwa2b61mgv4e" path="res://Scenes/Scenery/Platforms/Moving/MovingPlatformPf.gd" id="1_4unrd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ududd"]
+size = Vector3(2, 0.3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4unrd"]
+albedo_color = Color(0.078140736, 0.13574734, 0.4794004, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tjg60"]
+material = SubResource("StandardMaterial3D_4unrd")
+size = Vector3(2, 0.3, 2)
+
+[node name="MovingPlatformPF" type="PathFollow3D" unique_id=1790808964]
+rotation_mode = 0
+cubic_interp = false
+loop = false
+tilt_enabled = false
+script = ExtResource("1_4unrd")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=76091842]
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=758035420]
+shape = SubResource("BoxShape3D_ududd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1328246651]
+mesh = SubResource("BoxMesh_tjg60")
