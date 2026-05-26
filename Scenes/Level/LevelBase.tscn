@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
 [ext_resource type="PackedScene" uid="uid://dgbw4qxpotdm" path="res://Scenes/Granny/Granny.tscn" id="7_yqkkm"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickupTracker/PickupTracker.tscn" id="10_6ehlo"]
+[ext_resource type="PackedScene" uid="uid://dc0hxyw41fcng" path="res://Scenes/Scenery/Platforms/Moving/MovingPlatform.tscn" id="11_ilrmw"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="11_yeolc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
@@ -63,5 +64,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055444717, 0, -5.283321)
 
 [node name="Timer" type="Timer" parent="." unique_id=2005831742]
 wait_time = 4.0
+
+[node name="MovingPlatform" parent="." unique_id=1162165653 instance=ExtResource("11_ilrmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 4)
+points = Array[Vector3]([Vector3(4, 1, 0), Vector3(20, 4, 20), Vector3(20, 20, 20)])
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
