@@ -146,7 +146,7 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		
 
 
-func _on_hurt_box_damage_taken(amount: int) -> void:
+func _on_hurt_box_damage_taken(_amount: int) -> void:
 	hurt_sounds.play()
 	SignalHub.emit_on_player_health_change(hurt_box.current_health)
 

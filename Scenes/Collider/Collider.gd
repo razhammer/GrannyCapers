@@ -39,9 +39,9 @@ func die() -> void:
 	get_parent().queue_free()
 
 
-func _on_area_entered(area: Area3D) -> void:
+func _on_area_entered(_area: Area3D) -> void:
 	pass
 
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_body_entered(_body: Node3D) -> void:
 	pass

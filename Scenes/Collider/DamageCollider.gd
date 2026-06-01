@@ -22,11 +22,11 @@ func apply_impact_effect():
 		SignalHub.emit_on_add_new_explosion(global_position)
 		GrannyUtils.print_with_parent(self, "DamageCollider explodes_on_hit()")
 
-func _on_area_entered(area: Area3D) -> void:
+func _on_area_entered(_area: Area3D) -> void:
 	GrannyUtils.print_with_parent(self, "DamageCollider _on_area_entered()")
 	apply_impact_effect()
 
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_body_entered(_body: Node3D) -> void:
 	GrannyUtils.print_with_parent(self, "DamageCollider _on_body_entered()")
 	apply_impact_effect()
