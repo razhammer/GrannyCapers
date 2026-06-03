@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickupTracker/PickupTracker.tscn" id="10_6ehlo"]
 [ext_resource type="PackedScene" uid="uid://cxgydtl37l77c" path="res://Scenes/Enemies/Bomb/Bomb.tscn" id="11_ilrmw"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="11_yeolc"]
+[ext_resource type="PackedScene" uid="uid://dr3gv37ogu63c" path="res://Scenes/Scenery/Scenery/MmPineTrees.tscn" id="12_ilrmw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -67,5 +68,10 @@ wait_time = 4.0
 
 [node name="Bomb" parent="." unique_id=1395661782 instance=ExtResource("11_ilrmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.834197, -0.06222725, 4.4238443)
+
+[node name="Scenery" type="Node" parent="." unique_id=2073909141]
+
+[node name="MM_PineTrees" parent="Scenery" unique_id=1775742413 instance=ExtResource("12_ilrmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17570496, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

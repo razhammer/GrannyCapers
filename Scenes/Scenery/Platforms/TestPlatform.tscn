@@ -8,7 +8,7 @@ uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tq6yr"]
 material = SubResource("StandardMaterial3D_kckqq")
-size = Vector2(20, 20)
+size = Vector2(100, 100)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5md2k"]
 
