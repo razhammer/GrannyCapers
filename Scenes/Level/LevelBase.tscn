@@ -4,8 +4,6 @@
 [ext_resource type="Script" uid="uid://dkv081yb17o7j" path="res://Scenes/Level/LevelBase.gd" id="1_78m1b"]
 [ext_resource type="PackedScene" uid="uid://diiqqw6341r72" path="res://Scenes/Hud/Hud.tscn" id="2_bgw71"]
 [ext_resource type="PackedScene" uid="uid://4gmhh6ivuqix" path="res://Scenes/ObjectContainer/ObjectContainer.tscn" id="2_t11kh"]
-[ext_resource type="AudioStream" uid="uid://dvxhdoqb1xwpm" path="res://Assets/Audio/Music/Adventures in Adventureland.mp3" id="4_lmtt4"]
-[ext_resource type="AudioStream" uid="uid://cgnfsivumhmys" path="res://Assets/Audio/Music/Lord of the Rangs.mp3" id="5_ooqsx"]
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
 [ext_resource type="PackedScene" uid="uid://dgbw4qxpotdm" path="res://Scenes/Granny/Granny.tscn" id="7_yqkkm"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickupTracker/PickupTracker.tscn" id="10_6ehlo"]
@@ -26,12 +24,6 @@ sky = SubResource("Sky_78m1b")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_txgif"]
-playback_mode = 1
-streams_count = 2
-stream_0/stream = ExtResource("4_lmtt4")
-stream_1/stream = ExtResource("5_ooqsx")
-
 [node name="LevelBase" type="Node" unique_id=2000332634]
 script = ExtResource("1_78m1b")
 
@@ -45,11 +37,6 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Hud" parent="." unique_id=654958898 instance=ExtResource("2_bgw71")]
-
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1324284880]
-stream = SubResource("AudioStreamRandomizer_txgif")
-volume_db = -6.0
-autoplay = true
 
 [node name="TestPlatform" parent="." unique_id=356533742 instance=ExtResource("6_v5c15")]
 
