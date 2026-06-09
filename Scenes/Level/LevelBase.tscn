@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
 [ext_resource type="PackedScene" uid="uid://dgbw4qxpotdm" path="res://Scenes/Granny/Granny.tscn" id="7_yqkkm"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickupTracker/PickupTracker.tscn" id="10_6ehlo"]
+[ext_resource type="PackedScene" uid="uid://h4873k12y0u7" path="res://Scenes/Scenery/Scenery/TreesColliding.tscn" id="10_yeolc"]
 [ext_resource type="PackedScene" uid="uid://cxgydtl37l77c" path="res://Scenes/Enemies/Bomb/Bomb.tscn" id="11_ilrmw"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="11_yeolc"]
-[ext_resource type="PackedScene" uid="uid://dr3gv37ogu63c" path="res://Scenes/Scenery/Scenery/MmPineTrees.tscn" id="12_ilrmw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -58,7 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.834197, -0.06222725, 4.423
 
 [node name="Scenery" type="Node" parent="." unique_id=2073909141]
 
-[node name="MM_PineTrees" parent="Scenery" unique_id=1775742413 instance=ExtResource("12_ilrmw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17570496, 0)
+[node name="TreesColliding" parent="Scenery" unique_id=733899469 instance=ExtResource("10_yeolc")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

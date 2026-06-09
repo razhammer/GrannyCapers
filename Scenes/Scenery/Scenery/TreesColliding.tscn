@@ -1,7 +1,4 @@
-[gd_scene format=4 uid="uid://cafoeoatixex6"]
-
-[ext_resource type="PackedScene" uid="uid://h4873k12y0u7" path="res://Scenes/Scenery/Scenery/TreesColliding.tscn" id="2_ojo02"]
-[ext_resource type="Texture2D" uid="uid://buxtb424oah5j" path="res://Assets/Images/Textures/kenney_prototype-textures/Vector/texture_08.svg" id="2_ylg36"]
+[gd_scene format=4 uid="uid://h4873k12y0u7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2gwa"]
 resource_name = "Brown 1.002"
@@ -73,21 +70,133 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2y53w")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rlgs"]
-albedo_texture = ExtResource("2_ylg36")
-uv1_triplanar = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_2fp44"]
-material = SubResource("StandardMaterial3D_8rlgs")
-size = Vector2(100, 100)
-
-[node name="Scenery" type="Node" unique_id=1557150826]
-
-[node name="Pine Tree Tall" type="MeshInstance3D" parent="." unique_id=731784461]
+[sub_resource type="MultiMesh" id="MultiMesh_6atjl"]
+transform_format = 1
+instance_count = 12
 mesh = SubResource("ArrayMesh_lrjor")
-skeleton = NodePath("")
+buffer = PackedFloat32Array(-1.0160172, 0, 0, -31.1566, 0, 1.0160172, 0, 0, 0, 0, -1.0160172, 10.498111, -0.869515, 0, 0, -9.604462, 0, 0.869515, 0, 0, 0, 0, -0.869515, -7.026946, 0, 0, -1.1550368, 46.09842, 0, 1.1550368, 0, 0, 1.1550368, 0, 0, -1.2399883, -0.30371678, 0, 0, -3.087061, 0, 0.30371678, 0, 0, 0, 0, -0.30371678, -14.993074, 0, 0, -0.9563783, 42.138954, 0, 0.9563783, 0, 0, 0.9563783, 0, 0, -13.187672, 0, 0, -1.169905, 44.45288, 0, 1.169905, 0, 0, 1.169905, 0, 0, -17.615646, -1.5830939, 0, 0, -17.198088, 0, 1.5830939, 0, 0, 0, 0, -1.5830939, 15.474678, 0, 0, -1.1743026, 4.1713657, 0, 1.1743026, 0, 0, 1.1743026, 0, 0, 1.0475407, 0, 0, -0.50496566, 19.769794, 0, 0.50496566, 0, 0, 0.50496566, 0, 0, 44.499584, -0.3755588, 0, 0, -46.54068, 0, 0.3755588, 0, 0, 0, 0, -0.3755588, 34.10672, -1.1873267, 0, 0, -34.58866, 0, 1.1873267, 0, 0, 0, 0, -1.1873267, -42.286186, -0.31260777, 0, 0, 19.442463, 0, 0.31260777, 0, 0, 0, 0, -0.31260777, -22.90176)
 
-[node name="Ground" type="MeshInstance3D" parent="." unique_id=183039883]
-mesh = SubResource("PlaneMesh_2fp44")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_807od"]
+radius = 0.40640688
+height = 7.867464
 
-[node name="TreesColliding" parent="." unique_id=733899469 instance=ExtResource("2_ojo02")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_514ky"]
+radius = 0.347806
+height = 6.7330337
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2x6x8"]
+radius = 0.46201473
+height = 8.9439535
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vqrci"]
+radius = 0.12148671
+height = 2.3518114
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cdl5g"]
+radius = 0.3825513
+height = 7.405654
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xgreu"]
+radius = 0.46796197
+height = 9.059084
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_23adf"]
+radius = 0.63323754
+height = 12.258586
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cxcea"]
+radius = 0.46972102
+height = 9.093137
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hhoyw"]
+radius = 0.20198627
+height = 3.9101691
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nm6pd"]
+radius = 0.15022352
+height = 2.9081154
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_46gdm"]
+radius = 0.47493067
+height = 9.193988
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cx1fb"]
+radius = 0.12504311
+height = 2.420658
+
+[node name="TreesColliding" type="Node" unique_id=733899469]
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="." unique_id=2076043719]
+multimesh = SubResource("MultiMesh_6atjl")
+
+[node name="COLLIDER_0" type="StaticBody3D" parent="." unique_id=285276741]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -31.1566, 3.933732, 10.498111)
+
+[node name="_CollisionShape3D_20862" type="CollisionShape3D" parent="COLLIDER_0" unique_id=445129458]
+shape = SubResource("CapsuleShape3D_807od")
+
+[node name="COLLIDER_1" type="StaticBody3D" parent="." unique_id=1171363270]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -9.604462, 3.3665168, -7.026946)
+
+[node name="_CollisionShape3D_20863" type="CollisionShape3D" parent="COLLIDER_1" unique_id=12610593]
+shape = SubResource("CapsuleShape3D_514ky")
+
+[node name="COLLIDER_2" type="StaticBody3D" parent="." unique_id=358398678]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 46.09842, 4.4719768, -1.2399883)
+
+[node name="_CollisionShape3D_20864" type="CollisionShape3D" parent="COLLIDER_2" unique_id=98218450]
+shape = SubResource("CapsuleShape3D_2x6x8")
+
+[node name="COLLIDER_3" type="StaticBody3D" parent="." unique_id=1010149755]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -3.087061, 1.1759057, -14.993074)
+
+[node name="_CollisionShape3D_20865" type="CollisionShape3D" parent="COLLIDER_3" unique_id=502741820]
+shape = SubResource("CapsuleShape3D_vqrci")
+
+[node name="COLLIDER_4" type="StaticBody3D" parent="." unique_id=222539431]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 42.138954, 3.702827, -13.187672)
+
+[node name="_CollisionShape3D_20866" type="CollisionShape3D" parent="COLLIDER_4" unique_id=933233499]
+shape = SubResource("CapsuleShape3D_cdl5g")
+
+[node name="COLLIDER_5" type="StaticBody3D" parent="." unique_id=113162551]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 44.45288, 4.529542, -17.615646)
+
+[node name="_CollisionShape3D_20867" type="CollisionShape3D" parent="COLLIDER_5" unique_id=55190753]
+shape = SubResource("CapsuleShape3D_xgreu")
+
+[node name="COLLIDER_6" type="StaticBody3D" parent="." unique_id=1634122874]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -17.198088, 6.129293, 15.474678)
+
+[node name="_CollisionShape3D_20868" type="CollisionShape3D" parent="COLLIDER_6" unique_id=1550601078]
+shape = SubResource("CapsuleShape3D_23adf")
+
+[node name="COLLIDER_7" type="StaticBody3D" parent="." unique_id=309727792]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4.1713657, 4.5465684, 1.0475407)
+
+[node name="_CollisionShape3D_20869" type="CollisionShape3D" parent="COLLIDER_7" unique_id=286932039]
+shape = SubResource("CapsuleShape3D_cxcea")
+
+[node name="COLLIDER_8" type="StaticBody3D" parent="." unique_id=972247746]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 19.769794, 1.9550846, 44.499584)
+
+[node name="_CollisionShape3D_20870" type="CollisionShape3D" parent="COLLIDER_8" unique_id=1756004715]
+shape = SubResource("CapsuleShape3D_hhoyw")
+
+[node name="COLLIDER_9" type="StaticBody3D" parent="." unique_id=1731678069]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -46.54068, 1.4540577, 34.10672)
+
+[node name="_CollisionShape3D_20871" type="CollisionShape3D" parent="COLLIDER_9" unique_id=2092035885]
+shape = SubResource("CapsuleShape3D_nm6pd")
+
+[node name="COLLIDER_10" type="StaticBody3D" parent="." unique_id=757928295]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -34.58866, 4.596994, -42.286186)
+
+[node name="_CollisionShape3D_20872" type="CollisionShape3D" parent="COLLIDER_10" unique_id=1126889339]
+shape = SubResource("CapsuleShape3D_46gdm")
+
+[node name="COLLIDER_11" type="StaticBody3D" parent="." unique_id=684968219]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 19.442463, 1.210329, -22.90176)
+
+[node name="_CollisionShape3D_20873" type="CollisionShape3D" parent="COLLIDER_11" unique_id=1701614379]
+shape = SubResource("CapsuleShape3D_cx1fb")
