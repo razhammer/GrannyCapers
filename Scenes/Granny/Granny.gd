@@ -34,6 +34,8 @@ var _can_double_jump: bool = false
 var _is_moving: bool = false
 var _throwing: bool = false
 var _was_on_floor: bool = false
+var _should_bounce: bool = false
+var _bounce_speed: float = 0.0
 
 
 
@@ -44,14 +46,30 @@ func _ready() -> void:
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
+	SignalHub.on_player_bounce.connect(on_player_bounce)
+
+
+func on_player_bounce(bounce_speed: float):
+	_should_bounce = true
+	_bounce_speed = bounce_speed
 
 
 func _physics_process(delta: float) -> void:
 	_was_on_floor = is_on_floor()
-	_handle_input(delta)
+	
+	
+	if _should_bounce:
+		_handle_bounce()
+	else: 
+		_handle_input(delta)
 	move_and_slide()
 	_update_debug()
 	_check_landing()
+
+
+func _handle_bounce() -> void:
+	velocity = Vector3(0.0, _bounce_speed, 0.0)
+	_should_bounce = false
 
 
 func _check_landing() -> void:

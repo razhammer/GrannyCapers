@@ -10,6 +10,7 @@ signal on_player_died
 signal on_add_new_scene(ob: Node3D, new_pos: Vector3)
 signal on_add_new_explosion(new_pos: Vector3)
 signal on_player_health_change(health: int)
+signal on_player_bounce (speed: float)
 
 func emit_on_player_health_change(health: int) -> void:
 	on_player_health_change.emit(health)
@@ -45,3 +46,7 @@ func emit_on_add_new_scene(ob: Node3D, new_pos: Vector3) -> void:
 
 func emit_on_add_new_explosion(new_pos: Vector3) -> void:
 	on_add_new_explosion.emit(new_pos)
+
+
+func emit_on_player_bounce(_speed: float) -> void:
+	on_player_bounce.emit()
