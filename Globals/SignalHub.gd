@@ -48,5 +48,5 @@ func emit_on_add_new_explosion(new_pos: Vector3) -> void:
 	on_add_new_explosion.emit(new_pos)
 
 
-func emit_on_player_bounce(_speed: float) -> void:
-	on_player_bounce.emit()
+func emit_on_player_bounce(speed: float) -> void:
+	on_player_bounce.emit(speed)

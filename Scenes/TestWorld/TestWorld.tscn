@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://pa2kcwxgrmbb"]
+
+[ext_resource type="Texture2D" uid="uid://6c1bxev6465r" path="res://Assets/Images/Textures/kenney_prototype-textures/Vector/texture_09.svg" id="1_sg45x"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sg45x"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_x0uea"]
+sky_material = SubResource("ProceduralSkyMaterial_sg45x")
+
+[sub_resource type="Environment" id="Environment_yj8ql"]
+background_mode = 2
+sky = SubResource("Sky_x0uea")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glpwp"]
+albedo_color = Color(0.91993684, 1.0375848, 1.0992099, 1)
+albedo_texture = ExtResource("1_sg45x")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sg45x"]
+material = SubResource("StandardMaterial3D_glpwp")
+size = Vector2(50, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sg45x"]
+size = Vector3(3, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_x0uea"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_yj8ql"]
+size = Vector3(2, 0.5, 2)
+
+[node name="TestWorld" type="Node3D" unique_id=637835814]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=628173537]
+environment = SubResource("Environment_yj8ql")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1370437033]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=136912619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6451645, 0, 1.4582939)
+mesh = SubResource("PlaneMesh_sg45x")
+
+[node name="Bridge" type="Node3D" parent="." unique_id=879642163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="Start" type="StaticBody3D" parent="Bridge" unique_id=302339173]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bridge/Start" unique_id=1521557968]
+mesh = SubResource("BoxMesh_sg45x")
+
+[node name="PinJoint3D" type="PinJoint3D" parent="Bridge" unique_id=1006011767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72782636, 0, 1.5)
+node_a = NodePath("../Start")
+node_b = NodePath("../RigidBody3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bridge/PinJoint3D" unique_id=1503332498]
+mesh = SubResource("SphereMesh_x0uea")
+
+[node name="PinJoint3D3" type="PinJoint3D" parent="Bridge" unique_id=368966361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6960397, 0, 1.5)
+node_a = NodePath("../Start")
+node_b = NodePath("../RigidBody3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bridge/PinJoint3D3" unique_id=250044853]
+mesh = SubResource("SphereMesh_x0uea")
+
+[node name="PinJoint3D2" type="PinJoint3D" parent="Bridge" unique_id=1755119322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81838226, 0, 4.5)
+node_a = NodePath("../RigidBody3D")
+node_b = NodePath("../RigidBody3D2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bridge/PinJoint3D2" unique_id=2077080426]
+mesh = SubResource("SphereMesh_x0uea")
+
+[node name="PinJoint3D4" type="PinJoint3D" parent="Bridge" unique_id=1059324257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5486853, 0, 4.5)
+node_a = NodePath("../RigidBody3D")
+node_b = NodePath("../RigidBody3D2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bridge/PinJoint3D4" unique_id=850052402]
+mesh = SubResource("SphereMesh_x0uea")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bridge" unique_id=1278066188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bridge/RigidBody3D" unique_id=498976968]
+mesh = SubResource("BoxMesh_yj8ql")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="Bridge" unique_id=1691519049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bridge/RigidBody3D2" unique_id=2035828884]
+mesh = SubResource("BoxMesh_yj8ql")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=429673385]
+transform = Transform3D(0.43177086, -0.48793668, 0.75861174, -2.1963437e-08, 0.8410485, 0.5409598, -0.90198326, -0.23357067, 0.36314029, 6.360411, 12.33203, 6.422947)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1525518262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
