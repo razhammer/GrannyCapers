@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b4vxax0sb6gdx"]
+
+[ext_resource type="PackedScene" uid="uid://13n27lr6poa3" path="res://Assets/Models/Kenney/Platformer/platform.glb" id="1_8hgha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8l3v5"]
+size = Vector3(1, 0.21606445, 1)
+
+[node name="RopeBridgeSection" type="RigidBody3D" unique_id=1824078331]
+collision_mask = 2
+contact_monitor = true
+max_contacts_reported = 1
+
+[node name="platform2" parent="." unique_id=334079782 instance=ExtResource("1_8hgha")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1212061433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09387207, 0)
+shape = SubResource("BoxShape3D_8l3v5")
