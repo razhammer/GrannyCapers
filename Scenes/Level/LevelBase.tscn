@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cpcmc4i5rd4lg" path="res://Scenes/BounceButton/BounceButton.tscn" id="11_86rlm"]
 [ext_resource type="PackedScene" uid="uid://cxgydtl37l77c" path="res://Scenes/Enemies/Bomb/Bomb.tscn" id="11_ilrmw"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="11_yeolc"]
+[ext_resource type="PackedScene" uid="uid://c236nknm616h1" path="res://Scenes/RopeBridge/RopeBridge.tscn" id="12_ilrmw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -63,5 +64,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.834197, -0.06222725, 4.423
 
 [node name="BounceButton" parent="." unique_id=1445675343 instance=ExtResource("11_86rlm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.945357, 9.536743e-07, 1.0952377)
+
+[node name="RopeBridge" parent="." unique_id=1895640631 instance=ExtResource("12_ilrmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.956593, 1.599411, 8.842377)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
