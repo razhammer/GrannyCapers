@@ -9,6 +9,13 @@ const GROUP_NAME = "Pickup"
 enum PickupType { Jewel, Key, Coin }
 
 
+const PICKUP_POINTS: Dictionary[PickupType, int] = {
+	PickupType.Jewel: 10,
+	PickupType.Key: 30,
+	PickupType.Coin: 5
+}
+
+
 @onready var effects: AudioStreamPlayer3D = $Effects
 
 
@@ -17,6 +24,11 @@ enum PickupType { Jewel, Key, Coin }
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
+
+
+func get_score() -> int:
+	return PICKUP_POINTS[pickup_type]
+
 
 func _disable():
 	hide()
