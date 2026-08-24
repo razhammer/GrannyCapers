@@ -16,5 +16,5 @@ func _ready() -> void:
 	queue_free()
 
 
-func setup(points:int):
-	points = _points
+func setup(points: int):
+	_points = points

@@ -63,15 +63,6 @@ wait_time = 4.0
 [node name="BounceButton" parent="." unique_id=1445675343 instance=ExtResource("11_86rlm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.945357, 9.536743e-07, 1.0952377)
 
-[node name="Coin" parent="." unique_id=1628500723 instance=ExtResource("13_t11kh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.70708)
-
-[node name="Coin2" parent="." unique_id=299422473 instance=ExtResource("13_t11kh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.088829, 0, 7.70708)
-
-[node name="Coin3" parent="." unique_id=1791411036 instance=ExtResource("13_t11kh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.854765, 0, 7.70708)
-
 [node name="Coin4" parent="." unique_id=1707874206 instance=ExtResource("13_t11kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9542694, 0, 7.70708)
 
@@ -80,9 +71,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9542694, 0, 10.000582)
 
 [node name="Coin6" parent="." unique_id=1782732731 instance=ExtResource("13_t11kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9542694, 0, 10.000582)
-
-[node name="Jewel" parent="Coin6" unique_id=2036370799 instance=ExtResource("14_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.7876253)
 
 [node name="Jewel2" parent="Coin6" unique_id=495090958 instance=ExtResource("14_5t4eg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14122, 0, 3.7876253)
