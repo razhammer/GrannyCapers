@@ -24,6 +24,7 @@ func _exit_tree():
 
 
 func change_to_main():
+	ScoreManager.reset_score()
 	get_tree().change_scene_to_packed(MAIN_SCENE)
 
 

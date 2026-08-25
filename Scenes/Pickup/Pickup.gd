@@ -44,4 +44,5 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is Granny:
 		_disable()
 		SignalHub.emit_on_pickup_collected(self)
+		ScoreManager.current_score += get_score()
 		kill()

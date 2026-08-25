@@ -54,7 +54,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5s61s"]
 resource_name = "title_sequence"
-length = 3.0
+length = 2.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -87,9 +87,12 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"add_scores"
+}, {
 "args": [],
 "method": &"set_can_press"
 }]
@@ -155,6 +158,15 @@ theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 96
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 64
+
+[node name="GCHighScores" type="GridContainer" parent="MarginContainer" unique_id=1576234071]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1885578981]
 layout_mode = 2

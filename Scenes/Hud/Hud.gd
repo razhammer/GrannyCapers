@@ -10,6 +10,7 @@ extends Control
 @onready var label_heart: Label = $PC/HB/HBoxHeart/LabelHeart
 @onready var complete_label: Label = $LevelCompleteRect/VB/CompleteLabel
 @onready var in_game_music: AudioStreamPlayer = $InGameMusic
+@onready var label_score: Label = $PC/HB/LabelScore
 
 
 const DARKLING = preload("uid://bxnsd1fqwxay")
@@ -29,6 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	get_tree().paused = false
 	level_complete_rect.hide()
+	on_score_change(ScoreManager.current_score)
 
 
 func _enter_tree() -> void:
@@ -38,6 +40,7 @@ func _enter_tree() -> void:
 	SignalHub.on_level_completed.connect(on_level_completed)
 	SignalHub.on_player_health_change.connect(on_player_health_change)
 	SignalHub.on_player_died.connect(on_player_died)
+	SignalHub.on_score_change.connect(on_score_change)
 
 
 func pickup_score_update(scores: PickupScores) -> void: 
@@ -83,3 +86,6 @@ func on_player_health_change(health: int) -> void:
 
 func on_player_died() -> void:
 	show_game_over(true)
+
+func on_score_change(score: int) -> void:
+	label_score.text = "%04d" % score

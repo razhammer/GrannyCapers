@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cxebfgpj38ymb"]
+
+[ext_resource type="LabelSettings" uid="uid://f774xcxmwcuv" path="res://Resources/high_score_label.tres" id="1_7q3mo"]
+[ext_resource type="Script" uid="uid://dox37na7t1gt6" path="res://Scenes/HighScoreDisplay/HighScoreDisplay.gd" id="1_a8wiw"]
+
+[node name="HighScoreDisplay" type="HBoxContainer" unique_id=2024669355]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 12
+script = ExtResource("1_a8wiw")
+
+[node name="LabelScore" type="Label" parent="." unique_id=377687635]
+layout_mode = 2
+text = "0000"
+label_settings = ExtResource("1_7q3mo")
+
+[node name="LabelTime" type="Label" parent="." unique_id=1844392494]
+layout_mode = 2
+text = "31/01 15:00"
+label_settings = ExtResource("1_7q3mo")

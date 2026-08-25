@@ -28,6 +28,7 @@ buses/default_bus_layout="uid://cbw8gst306dre"
 
 SignalHub="*res://Globals/SignalHub.gd"
 GameManager="*res://Globals/GameManager.gd"
+ScoreManager="*uid://c5bq8bygl64o4"
 
 [display]
 

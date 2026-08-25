@@ -72,10 +72,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9542694, 0, 10.000582)
 [node name="Coin6" parent="." unique_id=1782732731 instance=ExtResource("13_t11kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9542694, 0, 10.000582)
 
-[node name="Jewel2" parent="Coin6" unique_id=495090958 instance=ExtResource("14_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14122, 0, 3.7876253)
+[node name="Jewel2" parent="." unique_id=495090958 instance=ExtResource("14_5t4eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8130493, 0, 13.788207)
 
-[node name="Key" parent="Coin6/Jewel2" unique_id=1852021170 instance=ExtResource("15_72khm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5713787, 0, 3.1430979)
+[node name="Key" parent="." unique_id=1628500723 instance=ExtResource("15_72khm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5866814, 0, 9.112685)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

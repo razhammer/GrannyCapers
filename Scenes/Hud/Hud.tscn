@@ -30,6 +30,9 @@ content_margin_bottom = 18.0
 bg_color = Color(0.0627451, 0.13725491, 0.3254902, 0.8392157)
 corner_detail = 1
 
+[sub_resource type="LabelSettings" id="LabelSettings_iftnw"]
+font_size = 32
+
 [sub_resource type="LabelSettings" id="LabelSettings_ogn3t"]
 font = ExtResource("3_r61c6")
 font_size = 32
@@ -106,6 +109,11 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 18
+
+[node name="LabelScore" type="Label" parent="PC/HB" unique_id=1561411227]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_iftnw")
 
 [node name="HBoxHeart" type="HBoxContainer" parent="PC/HB" unique_id=1536259964]
 layout_mode = 2
