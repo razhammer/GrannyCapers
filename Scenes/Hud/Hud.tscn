@@ -110,6 +110,11 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 18
 
+[node name="LabelLevel" type="Label" parent="PC/HB" unique_id=284792189]
+layout_mode = 2
+text = "LV: 1"
+label_settings = SubResource("LabelSettings_iftnw")
+
 [node name="LabelScore" type="Label" parent="PC/HB" unique_id=1561411227]
 layout_mode = 2
 text = "000"

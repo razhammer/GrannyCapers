@@ -7,10 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
 [ext_resource type="PackedScene" uid="uid://dgbw4qxpotdm" path="res://Scenes/Granny/Granny.tscn" id="7_yqkkm"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickupTracker/PickupTracker.tscn" id="10_6ehlo"]
-[ext_resource type="PackedScene" uid="uid://h4873k12y0u7" path="res://Scenes/Scenery/Scenery/TreesColliding.tscn" id="10_yeolc"]
-[ext_resource type="PackedScene" uid="uid://cpcmc4i5rd4lg" path="res://Scenes/BounceButton/BounceButton.tscn" id="11_86rlm"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="11_yeolc"]
-[ext_resource type="PackedScene" uid="uid://dgved8ku5vcl2" path="res://Scenes/Pickup/Coin.tscn" id="13_t11kh"]
 [ext_resource type="PackedScene" uid="uid://b7jarbbyqplg0" path="res://Scenes/Pickup/Jewel.tscn" id="14_5t4eg"]
 [ext_resource type="PackedScene" uid="uid://c6s0iu6kjw1us" path="res://Scenes/Pickup/Key.tscn" id="15_72khm"]
 
@@ -44,38 +41,20 @@ shadow_enabled = true
 [node name="TestPlatform" parent="." unique_id=356533742 instance=ExtResource("6_v5c15")]
 
 [node name="Granny" parent="." unique_id=944199689 instance=ExtResource("7_yqkkm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.933939, 0.014806509, -5.234317)
 
 [node name="Pickups" type="Node" parent="." unique_id=2058054046]
 
-[node name="PickupTracker" parent="." unique_id=1973471986 instance=ExtResource("10_6ehlo")]
+[node name="PickupTracker" parent="Pickups" unique_id=1973471986 instance=ExtResource("10_6ehlo")]
+
+[node name="Jewel2" parent="Pickups/PickupTracker" unique_id=495090958 instance=ExtResource("14_5t4eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8130493, 0, 13.788207)
+
+[node name="Key" parent="Pickups/PickupTracker" unique_id=1628500723 instance=ExtResource("15_72khm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5866814, 0, 9.112685)
 
 [node name="LevelExit" parent="." unique_id=2128408601 instance=ExtResource("11_yeolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055444717, 0, -5.283321)
 
-[node name="Timer" type="Timer" parent="." unique_id=2005831742]
-wait_time = 4.0
-
 [node name="Scenery" type="Node" parent="." unique_id=2073909141]
 
-[node name="TreesColliding" parent="Scenery" unique_id=733899469 instance=ExtResource("10_yeolc")]
-
-[node name="BounceButton" parent="." unique_id=1445675343 instance=ExtResource("11_86rlm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.945357, 9.536743e-07, 1.0952377)
-
-[node name="Coin4" parent="." unique_id=1707874206 instance=ExtResource("13_t11kh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9542694, 0, 7.70708)
-
-[node name="Coin5" parent="." unique_id=2029525658 instance=ExtResource("13_t11kh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9542694, 0, 10.000582)
-
-[node name="Coin6" parent="." unique_id=1782732731 instance=ExtResource("13_t11kh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9542694, 0, 10.000582)
-
-[node name="Jewel2" parent="." unique_id=495090958 instance=ExtResource("14_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8130493, 0, 13.788207)
-
-[node name="Key" parent="." unique_id=1628500723 instance=ExtResource("15_72khm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5866814, 0, 9.112685)
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Enemies" type="Node" parent="." unique_id=585049543]

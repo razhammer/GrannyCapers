@@ -11,6 +11,7 @@ extends Control
 @onready var complete_label: Label = $LevelCompleteRect/VB/CompleteLabel
 @onready var in_game_music: AudioStreamPlayer = $InGameMusic
 @onready var label_score: Label = $PC/HB/LabelScore
+@onready var label_level: Label = $PC/HB/LabelLevel
 
 
 const DARKLING = preload("uid://bxnsd1fqwxay")
@@ -29,6 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	get_tree().paused = false
+	label_level.text = "LV: %d" % GameManager.current_level
 	level_complete_rect.hide()
 	on_score_change(ScoreManager.current_score)
 
